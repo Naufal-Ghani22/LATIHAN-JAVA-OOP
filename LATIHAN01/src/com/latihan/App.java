@@ -94,7 +94,7 @@ public class App {
         player2.equipArmor(antiPeluru);
         player2.display();
 
-        System.out.println(\nPERTEMPURAN);
+        System.out.println("\nPERTEMPURAN");
         player1.attack(player2);
     }
 }
