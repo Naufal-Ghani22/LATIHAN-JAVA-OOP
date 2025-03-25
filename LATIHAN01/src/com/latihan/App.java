@@ -15,11 +15,23 @@ class Player{
     }
 
     void attack(Player opponent){
-        System.out.println(this.name + "attacking" + opponent.name);
+        double attackPower =  this.weapon.attackPower;
+        System.out.println(this.name + " attacking " + opponent.name + " with power " + attackPower);
+        opponent.defence(attackPower);
     }
 
     void defence(double attackPower){
-        System.out.println(this.name + " got's damage " + attackPower);
+        // mengambil damage
+        double damage;
+        if (this.armor.defencePower < attackPower){
+            damage = attackPower - this.armor.defencePower;
+        }else{
+            damage = 0;
+        }
+        System.out.println(this.name+ " gets damage " + damage);
+
+        this.health -= damage;
+        System.out.println(this.name + " gets damage " + damage);
     }
 
     void equipWeapon(Weapon weapon){
@@ -95,6 +107,14 @@ public class App {
         player2.display();
 
         System.out.println("\nPERTEMPURAN");
+        System.out.println("EPISODE-1");
         player1.attack(player2);
+        player1.display();
+        player2.display();
+        System.out.println("\nPERTEMPURAN");
+        System.out.println("EPISODE-2");
+        player2.attack(player1);
+        player1.display();
+        player2.display();
     }
 }
